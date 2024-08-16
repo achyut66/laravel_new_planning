@@ -1,0 +1,109 @@
+body {
+  margin: 0;
+  font-family: "Lato", sans-serif;
+}
+
+.sidebar {
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: #13095e;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+
+.sidebar a {
+  display: block;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+}
+ 
+.sidebar a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.sidebar a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+
+div.content {
+  margin-left: 200px;
+  padding: 1px 16px;
+  height: 1000px;
+}
+/* .ward_anugaman_page {
+  background-color: #f1f1f1;
+} */
+.givespace{
+  padding-top: 25px;
+}
+.text-center{
+  text-align: center;
+}
+/* table content */
+.table {
+    width: 100%;
+    border-collapse: collapse; /* Ensures that borders between cells are merged */
+}
+
+.table-bordered {
+    border: 1px solid #ddd; /* Applies a border to the table */
+}
+
+.table-bordered th, .table-bordered td {
+    border: 1px solid #ddd; /* Applies a border to table headers and cells */
+}
+
+.table-responsive {
+    overflow-x: auto; /* Adds horizontal scroll if the table is too wide */
+}
+.table th, .table td {
+    text-align: left;
+    padding: 8px;
+}
+
+.table th {
+    background-color: #f2f2f2;
+}
+.thead th {
+    background-color: #f4f4f4; /* Optional: Adds background color to the table header */
+    text-align: center; /* Optional: Centers text in table headers */
+}
+
+.text-center {
+    text-align: center; /* Centers text in table rows */
+}
+.heading{
+  font-weight:bold;
+  font-size: 18px;
+  text-align: center;
+}
+.postname{
+  width: 35%;
+}
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidebar a {float: left;}
+  div.content {margin-left: 0;}
+}
+
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+}
+.inputname{
+  width: 100%;
+}
+#header_info{
+  background-color: #555;
+}
