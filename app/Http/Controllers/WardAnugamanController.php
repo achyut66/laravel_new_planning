@@ -42,7 +42,7 @@ class WardAnugamanController extends Controller
             'ward_no.*' => 'required|string',
             'cit_no.*' => 'required|string',
             'issued_d.*' => 'required|string',
-            'issued_date.*' => 'required|date_format:Y/m/d',
+            'issued_date.*' => 'required|date_format:Y/m/d|date_format:Y-m-d',
         ]);
 
         // Extract form data
@@ -57,19 +57,8 @@ class WardAnugamanController extends Controller
         $address = 'add';
         $contact_number = 0;
         $darta_no = $request->input('darta_no');
-        // $maxDartaNo = WardAnugaman::max('darta_no');
 
-        // if (is_null($maxDartaNo)) {
-        //     $darta_no = 1;
-        // } else {
-        //     // Otherwise, increment the highest darta_no
-        //     $darta_no = $maxDartaNo + 1;
-        // }
 
-        // Debugging: Check the extracted data
-        // dd($darta_no);
-
-        // Create WardAnugaman records for each row
         foreach ($posts as $key => $post) {
             WardAnugaman::create([
                 'program_name' => $programName,

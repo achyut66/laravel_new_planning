@@ -49,11 +49,11 @@
                                     <option value="5">सदस्य</option>
                                 </select>
                             </td>
-                            <td><input type="text" name="name[]"></td>
-                            <td><input type="text" name="ward_no[]"></td>
-                            <td><input type="text" name="cit_no[]"></td>
-                            <td><input type="text" name="issued_d[]"></td>
-                            <td><input type="text" name="issued_date[]" placeholder="YYYY/MM/DD"></td>
+                            <td><input type="text" name="name[]" required></td>
+                            <td><input type="text" name="ward_no[]" required></td>
+                            <td><input type="text" name="cit_no[]" required></td>
+                            <td><input type="text" name="issued_d[]" required></td>
+                            <td><input type="text" name="issued_date[]" placeholder="YYYY/MM/DD" required></td>
                             <td>
                                 <span class="addMore">
                                     <a class="btn btn-success"><i class="fa fa-plus" style="width:20px;"></i></a>
@@ -83,11 +83,11 @@
                 <option value="5">सदस्य</option>
             </select>
         </td>
-        <td><input type="text" name="name[]"></td>
-        <td><input type="text" name="ward_no[]"></td>
-        <td><input type="text" name="cit_no[]"></td>
-        <td><input type="text" name="issued_d[]"></td>
-        <td><input type="text" name="issued_date[]" placeholder="YYYY/MM/DD"></td>
+        <td><input type="text" name="name[]" required></td>
+        <td><input type="text" name="ward_no[]" required></td>
+        <td><input type="text" name="cit_no[]" required></td>
+        <td><input type="text" name="issued_d[]" required></td>
+        <td><input type="text" name="issued_date[]" placeholder="YYYY/MM/DD" required></td>
         <td>
             <span class="addMore">
                 <a class="btn btn-success"><i class="fa fa-plus" style="width:20px;"></i></a>

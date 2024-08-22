@@ -33,6 +33,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+
     // other controllers
     Route::get('/ward-anugamans', [WardAnugamanController::class, 'index'])->name('ward_anugamans.index');
     Route::get('/ward-anugamans/{darta_no}', [WardAnugamanController::class, 'show'])->name('ward_anugamans.show');
@@ -58,7 +59,10 @@ Route::middleware('auth')->group(function () {
     // yojana upload route
     Route::get('/yojanauploads', [ExcelController::class, 'index'])->name('yojanaupload.index');
     Route::get('/yojanauploads/programs', [ExcelController::class, 'showallprogram'])->name('yojanaupload.showallprogram');
+    Route::get('/yojanauploads/{darta_no}', [ExcelController::class, 'seeDetails'])->name('yojanaupload.seeDetails');
+    Route::get('/yojanauploads/printDetails/{darta_no}', [ExcelController::class, 'printAlldetails'])->name('yojanaupload.printAlldetails');
     Route::post('/upload', [ExcelController::class, 'upload'])->name('upload');
+    // Route::get('/yojana')
 
 });
 

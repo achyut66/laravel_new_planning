@@ -49,11 +49,11 @@
                                     <option value="5">सदस्य</option>
                                 </select>
                             </td>
-                            <td><input type="text" name="name[]"></td>
-                            <td><input type="text" name="ward_no[]"></td>
-                            <td><input type="text" name="cit_no[]"></td>
-                            <td><input type="text" name="issued_d[]"></td>
-                            <td><input type="text" name="issued_date[]" placeholder="YYYY/MM/DD"></td>
+                            <td><input type="text" name="name[]" required></td>
+                            <td><input type="text" name="ward_no[]" required></td>
+                            <td><input type="text" name="cit_no[]" required></td>
+                            <td><input type="text" name="issued_d[]" required></td>
+                            <td><input type="text" name="issued_date[]" placeholder="YYYY/MM/DD" required></td>
                             <td>
                                 <span class="addMore">
                                     <a class="btn btn-success"><i class="fa fa-plus" style="color:darkgreen;width:20px;"></i></a>
@@ -83,11 +83,11 @@
                 <option value="5">सदस्य</option>
             </select>
         </td>
-        <td><input type="text" name="name[]"></td>
-        <td><input type="text" name="ward_no[]"></td>
-        <td><input type="text" name="cit_no[]"></td>
-        <td><input type="text" name="issued_d[]"></td>
-        <td><input type="text" name="issued_date[]" placeholder="YYYY/MM/DD"></td>
+        <td><input type="text" name="name[]" required></td>
+        <td><input type="text" name="ward_no[]" required></td>
+        <td><input type="text" name="cit_no[]" required></td>
+        <td><input type="text" name="issued_d[]" required></td>
+        <td><input type="text" name="issued_date[]" placeholder="YYYY/MM/DD" required></td>
         <td>
             <span class="addMore">
                 <a class="btn btn-success"><i class="fa fa-plus" style="width:20px;"></i></a>
@@ -101,4 +101,31 @@
 @endsection
 
 @section('scripts')
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const form = document.querySelector('form');
+        form.addEventListener('submit', function (event) {
+            let isValid = true;
+
+            // Check if any required fields are empty
+            document.querySelectorAll('input[required]').forEach(input => {
+                if (!input.value.trim()) {
+                    isValid = false;
+                    input.classList.add('is-invalid');
+                    // Optionally show an error message
+                    input.nextElementSibling?.classList.add('text-danger');
+                } else {
+                    input.classList.remove('is-invalid');
+                    // Remove error message if previously set
+                    input.nextElementSibling?.classList.remove('text-danger');
+                }
+            });
+
+            if (!isValid) {
+                event.preventDefault(); // Stop form submission
+                alert('Please fill out all required fields.');
+            }
+        });
+    });
+</script>
 @endsection

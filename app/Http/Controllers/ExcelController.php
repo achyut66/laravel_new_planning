@@ -52,7 +52,36 @@ class ExcelController extends Controller
         // dd($n_result);
         return view('yojanaupload.view_all_plans', compact('data'));
     }
+    public function seeDetails($darta_no): view
+    {
+        // $data = YojanaUpload::paginate(20);
+        $id = $darta_no;
+        $yojana = YojanaUpload::where('id', $darta_no)->firstOrFail();
 
+        $ward_a_details = WardAnugaman::where('darta_no', $id)->get();
+        $nagar_a_details = NagarAnugaman::where('darta_no', $id)->get();
+
+        return view('yojanaupload.view_details', compact('ward_a_details', 'nagar_a_details', 'yojana'));
+    }
+    public function countDetails(): view
+    {
+        // $yojana = YojanaUpload::where('id', $darta_no)->firstOrFail();
+        $ward_total = WardAnugaman::get();
+        $nagar_a_details = NagarAnugaman::get();
+
+        return view('yojanaupload.view_details', compact('ward_a_details', 'nagar_a_details', 'yojana'));
+    }
+
+    public function printAlldetails($darta_no): view
+    {
+        // $data = YojanaUpload::paginate(20);
+        $id = $darta_no;
+        $yojana = YojanaUpload::where('id', $darta_no)->firstOrFail();
+
+        $ward_a_details = WardAnugaman::where('darta_no', $id)->get();
+        $nagar_a_details = NagarAnugaman::where('darta_no', $id)->get();
+        return view('yojanaupload.view_alldetails_print', compact('ward_a_details', 'nagar_a_details', 'yojana'));
+    }
     public function upload(Request $request)
     {
         // Validate the uploaded file
@@ -84,18 +113,20 @@ class ExcelController extends Controller
             $dataToInsert[] = [
                 'program_name' => $row[0] ?? null,
                 'p_ward' => $row[1] ?? null,
-                'biniyojan_kisim' => $row[2] ?? null,
-                'anudan_kisim' => $row[3] ?? null,
-                'biniyojan_shrot' => $row[4] ?? null,
-                'anudan_rakam' => $row[5] ?? null,
-                'first' => $row[6] ?? null,
-                'second' => $row[7] ?? null,
-                'third' => $row[8] ?? null,
-                'fourth' => $row[9] ?? null,
-                'bajet_shrot' => $row[10] ?? null,
-                'rajpatra_no' => $row[11] ?? null,
-                'bajet_shirshak' => $row[12] ?? null,
-                'addedDate' => $row[13] ?? null,
+                'bishaygat_chhetra' => $row[2] ?? null,
+                'shirshak_kisim' => $row[3] ?? null,
+                'biniyojan_kisim' => $row[4] ?? null,
+                'anudan_kisim' => $row[5] ?? null,
+                'biniyojan_shrot' => $row[6] ?? null,
+                'anudan_rakam' => $row[7] ?? null,
+                'first' => $row[8] ?? null,
+                'second' => $row[9] ?? null,
+                'third' => $row[10] ?? null,
+                'fourth' => $row[11] ?? null,
+                'bajet_shrot' => $row[12] ?? null,
+                'rajpatra_no' => $row[13] ?? null,
+                'bajet_shirshak' => $row[14] ?? null,
+                'addedDate' => $row[15] ?? null,
                 'addedBy' => $request->user()->id, // Assuming user is authenticated
                 'created_at' => now(),
                 'updated_at' => now(),

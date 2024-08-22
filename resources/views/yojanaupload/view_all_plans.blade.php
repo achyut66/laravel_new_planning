@@ -33,6 +33,8 @@
                         <th>राजपत्र नं .</th>
                         <th>योजनाको नाम</th>
                         <th>वार्ड नं</th>
+                        <th>बिषयगत क्षेत्र</th>
+                        <th>शिर्षकगत किसिम</th>
                         <th>बिनियोजन किसिम</th>
                         <th>अनुदान किसिम</th>
                         <th>बिनियोजन श्रोत</th>
@@ -76,13 +78,16 @@
                             <td>{{ $d['rajpatra_no']}}</td>
                             <td>{{ $d['program_name']}}</td>
                             <td>{{ $d['p_ward']}}</td>
+                            <td>{{ $d['bishaygat_chhetra']}}</td>
+                            <td>{{ $d['shirshak_kisim']}}</td>
                             <td>{{ $d['biniyojan_kisim']}}</td>
                             <td>{{ $d['anudan_kisim']}}</td>
                             <td>{{ $d['biniyojan_shrot']}}</td>
                             <td>{{ $d['anudan_rakam']}}</td>
                             <td>{{ $d['bajet_shirshak']}}</td>
                             <td>{{ $d['bajet_shrot']}}</td>
-                            <td>&nbsp;</td>
+                            <td><a href="{{ route('yojanaupload.seeDetails', ['darta_no' => $d['id']]) }}"
+                                    class="btn btn-primary"><i class="fa fa-eye"></i></a></td>
                         </tr>
                     @endforeach
                 </table>

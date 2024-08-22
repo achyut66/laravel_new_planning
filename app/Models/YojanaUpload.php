@@ -16,6 +16,8 @@ class YojanaUpload extends Model
     protected $fillable = [
         'program_name',
         'p_ward',
+        'bishaygat_chhetra',
+        'shirshak_kisim',
         'biniyojan_kisim',
         'anudan_kisim',
         'biniyojan_shrot',

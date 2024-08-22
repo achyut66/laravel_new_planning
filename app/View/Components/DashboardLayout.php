@@ -3,6 +3,9 @@
 namespace App\View\Components;
 
 use Illuminate\View\Component;
+use App\Models\NagarAnugaman;
+use App\Models\WardAnugaman;
+use Illuminate\Support\Facades\DB; // Import the DB facade
 
 class DashboardLayout extends Component
 {
@@ -23,6 +26,12 @@ class DashboardLayout extends Component
      */
     public function render()
     {
-        return view('components.dashboard-layout');
+        $countward = WardAnugaman::select('darta_no', DB::raw('count(*) as count'))
+            ->groupBy('darta_no')
+            ->get();
+        $countnagar = NagarAnugaman::select('darta_no', DB::raw('count(*) as count'))
+            ->groupBy('darta_no')
+            ->get();
+        return view('components.dashboard-layout', compact('countward', 'countnagar'));
     }
 }

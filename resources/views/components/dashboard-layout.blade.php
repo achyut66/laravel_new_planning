@@ -10,16 +10,16 @@
         <div class="row">
             <div class="col-md-6">
                 <div><a href="{{ route('ward_anugamans.showall') }}">
-                        <button class="btn btn-success" style="padding: 60px 236px;">
-                            वार्ड अनुगमन विवरण
+                        <button class="btn btn-success" style="padding: 60px 236px;font-size:22px;">
+                            जम्मा वार्ड अनुगमन ({{ count($countward) }})
                         </button>
                     </a>
                 </div>
             </div>
             <div class="col-md-6">
                 <div><a href="{{ route('nagar_anugamans.showall')}}"><button class="btn btn-success"
-                            style="padding: 60px 236px;">नगर अनुगमन
-                            विवरण</button></a>
+                            style="padding: 60px 236px;font-size:22px;">जम्मा नगर अनुगमन
+                            ({{ count($countnagar) }})</button></a>
                 </div>
             </div>
         </div>
